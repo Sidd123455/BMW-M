@@ -1102,3 +1102,294 @@
     filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(67, 120, 244, 0.5));
 }
 
+/* Enhanced Home Section Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .content {
+        padding: 40px 20px;
+    }
+
+    .content .text h1 {
+        font-size: 50px;
+        padding: 20px 0 60px;
+    }
+
+    .content .big-img {
+        width: 100%;
+        left: 0;
+    }
+
+    .content .big-img img {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .small-car {
+        gap: 2rem;
+        padding: 0 20px;
+    }
+
+    .small-car img {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .content .text {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .content .text span {
+        font-size: 16px;
+    }
+
+    .content .text h1 {
+        font-size: 40px;
+        padding: 20px 0 40px;
+    }
+
+    .content .text .btn {
+        padding: 15px 25px;
+        font-size: 14px;
+    }
+
+    .content .big-img {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .content .big-img img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .small-car {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 1.5rem;
+        padding: 0 15px;
+    }
+
+    .small-car img {
+        width: 22%;
+        margin: 0;
+        transform: scale(1);
+    }
+
+    .small-car img:hover {
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 30px 15px;
+    }
+
+    .content .text span {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .content .text h1 {
+        font-size: 32px;
+        padding: 15px 0 30px;
+    }
+
+    .content .text .btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .content .big-img img {
+        max-width: 100%;
+    }
+
+    .small-car {
+        gap: 1rem;
+        padding: 0 10px;
+    }
+
+    .small-car img {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust animation delays for mobile */
+    .small-car1 {
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+    .small-car2 {
+        animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    }
+    .small-car3 {
+        animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    }
+    .small-car4 {
+        animation: fadeInUp 0.8s ease-out 0.5s backwards;
+    }
+}
+
+/* Fix for small screens */
+@media screen and (max-width: 360px) {
+    .content .text h1 {
+        font-size: 28px;
+    }
+
+    .content .text .btn {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    .small-car img {
+        width: 48%;
+    }
+}
+
+/* Improve image loading and transitions */
+.content .big-img img {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.content .big-img img.loading {
+    opacity: 0;
+}
+
+/* Add smooth scrolling for better mobile experience */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: #4378f4;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .contanier nav {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        position: relative;
+    }
+
+    .contanier nav .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .contanier nav .nav-links.active {
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
+    }
+
+    .contanier nav .nav-links a {
+        margin: 0;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        line-height: normal;
+    }
+
+    .contanier nav .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .search {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    /* Hide the underline effect on mobile */
+    .contanier nav .nav-links a::after {
+        display: none;
+    }
+
+    /* Add active state for mobile menu items */
+    .contanier nav .nav-links a.active {
+        color: #4378f4;
+        background-color: #f8f9fa;
+    }
+
+    /* Improve touch targets */
+    .contanier nav .nav-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Add smooth transition for menu items */
+.contanier nav .nav-links a {
+    transition: all 0.3s ease;
+}
+
+/* Improve mobile menu animation */
+@media screen and (max-width: 768px) {
+    .contanier nav .nav-links {
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .contanier nav .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+

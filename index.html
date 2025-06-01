@@ -12,6 +12,9 @@
     <div class="contanier">
         <nav data-aos="fade-down" data-aos-duration="1000">
             <img src="motorsport-bmw-seeklogo.png" class="logo" data-aos="fade-right" data-aos-delay="200">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="nav-links">
                 <a href="#Home" data-aos="fade-down" data-aos-delay="300">Home</a>
                 <a href="#Models" data-aos="fade-down" data-aos-delay="400">Models</a>
@@ -394,6 +397,50 @@
             once: true,
             offset: 100,
             easing: 'ease-in-out'
+        });
+    </script>
+    <script>
+        function myCars(src) {
+            document.getElementById("img").src = src;
+        }
+    </script>
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between bars and times icon
+            const icon = menuToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
     </script>
 </body>
